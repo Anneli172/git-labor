@@ -1,0 +1,10 @@
+
+### 9.2 Tee Pull Request
+
+GitHub:
+
+1. "feature/documentation had recent pushes"
+2. Compare & pull request
+3. Title: "Lisa kasutamisjuhend"
+4. Description:
+
