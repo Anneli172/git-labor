@@ -6,3 +6,19 @@ Git Labor Märkmed
 3. Git commit - salvesta
 
 
+  zabbix-agent:
+    image: zabbix/zabbix-agent:ubuntu-7.0.6
+    container_name: zabbix-agent
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      ZBX_HOSTNAME: docker-agent-01
+      TZ: Europe/Tallinn
+    networks:
+      - zabbix-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "zabbix_agentd -t agent.ping | grep -q '1' || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 15s
